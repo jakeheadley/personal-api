@@ -16,19 +16,43 @@ module.exports = {
   getName: (req, res) => {
     res.json({name: user.name})
   },
+
   getLocation: (req, res) => {
     res.json({location: user.location})
   },
+
+
+
+
   getOccupations: (req, res) => {
-    res.json({occupation: user.occupations})
+    var results = [];
+    if (req.query.order === 'asc'){
+      for (key in user.occupations){
+        results.push(user.occupations[key]);
+      }
+      return res.send({Occupations: results.sort()});
+    } else if (req.query.order === 'desc') {
+      for (key in user.occupations){
+        results.push(user.occupations[key]);
+      }
+      return res.send({Occupations: results.sort().reverse()});
+    }
+    res.json({occupation: user.occupations});
   },
+
+
+
+
+
   getLatestJob: (req, res) => {
     var latestjob = user.occupations.slice(-1);
     res.json({latestjob});
   },
+
   getHobbies: (req, res) => {
     res.json({hobbies: user.hobbies})
   },
+
   getHobbyType: (req, res) => {
     var results = [];
     for (key in user.hobbies){
@@ -38,9 +62,20 @@ module.exports = {
     }
     res.send(results);
   },
+
   getFamily: (req, res) => {
+    var results = [];
+    if (req.query.relation){
+      for (key in user.family){
+        if (user.family[key].relation === req.query.relation) {
+          results.push({family:user.family[key]});
+        }
+      }
+      res.send(results);
+    }
     res.json({family: user.family})
   },
+
   getFamilyGender: (req, res) => {
     var results = [];
     for (key in user.family){
@@ -50,6 +85,7 @@ module.exports = {
     }
     res.send(results);
   },
+
   getRestaurants: (req, res) => {
     //console.log('all the resaurants:', req.query);
     // Start: For in loop ======================================================

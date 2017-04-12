@@ -1,11 +1,19 @@
 var user = {
   name: 'Jake',
-  location: 'Earth',
+  location: 'Planet Earth',
   occupations: ['Monkey Boy', 'Space Cadet', 'Designer', 'Developer', 'Technology Student'],
   hobbies: [
     {
       name: 'Cyling',
       type: 'Mountain'
+    },
+    {
+      name: 'Disco Dancing',
+      type: 'Dancing'
+    },
+    {
+      name: 'Painting',
+      type: 'Art'
     },
     {
       name: 'Cooking',
@@ -18,6 +26,11 @@ var user = {
   ],
   family: [
     {
+      name: 'Jenna',
+      relation: 'Girlfriend',
+      gender: 'Female'
+    },
+    {
       name: 'Josh',
       relation: 'Brother',
       gender: 'Male'
@@ -26,7 +39,8 @@ var user = {
       name: 'Harry',
       relation: 'Father',
       gender: 'Male'
-    },{
+    },
+    {
       name: 'Anna',
       relation: 'Mother',
       gender: 'Female'
@@ -34,7 +48,7 @@ var user = {
   ],
   restaurants: [
     {
-      name: 'Dr. Hos',
+      name: 'Dr\. Ho\'s',
       type: 'Pizza',
       rating: '10'
     },
@@ -46,6 +60,11 @@ var user = {
     {
       name: 'MAS',
       type: 'Tapas',
+      rating: '10'
+    },
+    {
+      name: 'Citizen Burger',
+      type: 'Burgers',
       rating: '9'
     }
   ]
