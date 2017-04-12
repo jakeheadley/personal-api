@@ -1,17 +1,5 @@
 var user = require('../user.js');
 
-// ES6 style
-// module.exports = {
-//   getName: () => {console.log(user.name)}
-// }
-
-// ES5 style
-// module.exports = {
-//   getName: function(req, res){
-//     res.json({name: user.name})
-//   }
-// }
-
 module.exports = {
   getName: (req, res) => {
     res.json({name: user.name})
@@ -21,9 +9,6 @@ module.exports = {
     res.json({location: user.location})
   },
 
-
-
-
   getOccupations: (req, res) => {
     var results = [];
     if (req.query.order === 'asc'){
@@ -31,7 +16,7 @@ module.exports = {
         results.push(user.occupations[key]);
       }
       return res.send({Occupations: results.sort()});
-    } else if (req.query.order === 'desc') {
+    } else if (req.query.order === 'desc'){
       for (key in user.occupations){
         results.push(user.occupations[key]);
       }
@@ -39,10 +24,6 @@ module.exports = {
     }
     res.json({occupation: user.occupations});
   },
-
-
-
-
 
   getLatestJob: (req, res) => {
     var latestjob = user.occupations.slice(-1);
@@ -56,7 +37,7 @@ module.exports = {
   getHobbyType: (req, res) => {
     var results = [];
     for (key in user.hobbies){
-      if (user.hobbies[key].type === req.params.id) {
+      if (user.hobbies[key].type === req.params.id){
         results.push({hobbies:user.hobbies[key]});
       }
     }
@@ -67,7 +48,7 @@ module.exports = {
     var results = [];
     if (req.query.relation){
       for (key in user.family){
-        if (user.family[key].relation === req.query.relation) {
+        if (user.family[key].relation === req.query.relation){
           results.push({family:user.family[key]});
         }
       }
@@ -79,7 +60,7 @@ module.exports = {
   getFamilyGender: (req, res) => {
     var results = [];
     for (key in user.family){
-      if (user.family[key].gender === req.params.id) {
+      if (user.family[key].gender === req.params.id){
         results.push({family:user.family[key]});
       }
     }
@@ -87,14 +68,10 @@ module.exports = {
   },
 
   getRestaurants: (req, res) => {
-    //console.log('all the resaurants:', req.query);
-    // Start: For in loop ======================================================
     var results = [];
-    if (req.query.rating) {
+    if (req.query.rating){
       for (key in user.restaurants){
-        // Start: For rating value URL like: '/?rating=9' or whatever rating val
         if (user.restaurants[key].rating >= req.query.rating){
-          //console.log('true');
           results.push(user.restaurants[key]);
         }
       }
@@ -107,7 +84,7 @@ module.exports = {
   getRestaurantsName: (req, res) => {
     var results = [];
     for (key in user.restaurants){
-      if (user.restaurants[key].name === req.params.id) {
+      if (user.restaurants[key].name === req.params.id){
         results.push({restaurants:user.restaurants[key]});
       }
     }
