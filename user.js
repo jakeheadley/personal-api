@@ -1,7 +1,7 @@
 var user = {
   name: 'Jake',
   location: 'Earth',
-  occupations: ['Student', 'Designer', 'Developer', 'Space Cadet', 'Monkey Boy'],
+  occupations: ['Monkey Boy', 'Space Cadet', 'Designer', 'Developer', 'Technology Student'],
   hobbies: [
     {
       name: 'Cyling',
@@ -13,7 +13,7 @@ var user = {
     },
     {
       name: 'Hiking',
-      type: 'Walking'
+      type: 'Mountain'
     }
   ],
   family: [
