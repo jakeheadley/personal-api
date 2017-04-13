@@ -1,5 +1,5 @@
 var user = require('../user.js');
-var user = require('../skillz.js');
+var skillz = require('../skillz.js');
 
 module.exports = {
   getName: (req, res) => {
@@ -84,36 +84,51 @@ module.exports = {
   },
   // Put name
   putName: (req, res) => {
-    console.log('name', req.body);
+    // console.log('name', req.body);
     res.send(req.name);
   },
   // Put location
   putLocation: (req, res) => {
-    console.log('location', req.body);
+    // console.log('location', req.body);
     res.send(req.location);
   },
   // Post hobbies
   postHobbies: (req, res) => {
-    console.log('hobbies', req.body);
+    // console.log('hobbies', req.body);
     user.hobbies.push(req.body);
     res.json(req.hobbies);
   },
   // Post occupations
   postOccupations: (req, res) => {
-    console.log('occupations', req.body);
+    // console.log('occupations', req.body);
     user.occupations.push(req.body);
     res.json(req.occupations);
   },
   // Post family
   postFamily: (req, res) => {
-    console.log('family', req.body);
+    // console.log('family', req.body);
     user.family.push(req.body);
     res.json(req.family);
   },
   // Post restaurants
   postRestaurants: (req, res) => {
-    console.log('restaurants', req.body);
+    // console.log('restaurants', req.body);
     user.restaurants.push(req.body);
     res.json(req.restaurants);
+  },
+  // ===========================================================================
+  // Start SKILLZ
+  getSkillz: (req, res) => {
+    var results = [];
+    if (req.query.experience){
+      for (key in skillz){
+        if (skillz[key].experience === req.query.experience){
+          results.push({skillz:skillz[key]});
+        }
+      }
+      return res.send(results);
+    }
+    res.json({skillz:skillz});
   }
+
 }

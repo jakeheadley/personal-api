@@ -21,6 +21,8 @@ app.get('/family', mainCtrl.getFamily);
 app.get('/family/:id', mainCtrl.getFamilyGender);
 app.get('/restaurants', mainCtrl.getRestaurants);
 app.get('/restaurants/:id', mainCtrl.getRestaurantsName);
+// -----------------------------------------------------------------------------
+app.get('/skillz', mainCtrl.getSkillz);
 
 // Things that can be PUT or PUSHED ============================================
 // These relate to functions which are contained in the mainCtrl.js file =======
