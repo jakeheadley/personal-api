@@ -129,6 +129,11 @@ module.exports = {
       return res.send(results);
     }
     res.json({skillz:skillz});
+  },
+  postSkillz: (req, res, next) => {
+    console.log('skillz', req.body);
+    skillz.push(req.body);
+    return res.json({skillz:skillz});
   }
 
 }

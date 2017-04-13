@@ -33,6 +33,8 @@ app.post('/hobbies', mainCtrl.postHobbies);
 app.post('/occupations', mainCtrl.postOccupations);
 app.post('/family', mainCtrl.postFamily);
 app.post('/restaurants', mainCtrl.postRestaurants);
+// -----------------------------------------------------------------------------
+app.post('/skillz', middleware.generateId, mainCtrl.postSkillz);
 
 // Declares the port number to listen to on the app on =========================
 const PORT = 4040;
