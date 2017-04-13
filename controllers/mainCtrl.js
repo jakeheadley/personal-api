@@ -1,5 +1,7 @@
 var user = require('../user.js');
 var skillz = require('../skillz.js');
+var secrets = require('../secrets.js');
+
 
 module.exports = {
   getName: (req, res) => {
@@ -134,6 +136,11 @@ module.exports = {
     console.log('skillz', req.body);
     skillz.push(req.body);
     return res.json({skillz:skillz});
+  },
+  // ===========================================================================
+  // Start SECRETS
+  getSecrets: (req, res, next) => {
+    return res.send({secrets:secrets.secrets});
   }
 
 }
