@@ -4,11 +4,9 @@ module.exports = {
   getName: (req, res) => {
     res.json({name: user.name})
   },
-
   getLocation: (req, res) => {
     res.json({location: user.location})
   },
-
   getOccupations: (req, res) => {
     var results = [];
     if (req.query.order === 'asc'){
@@ -24,16 +22,13 @@ module.exports = {
     }
     res.json({occupation: user.occupations});
   },
-
   getLatestJob: (req, res) => {
     var latestjob = user.occupations.slice(-1);
     res.json({latestjob});
   },
-
   getHobbies: (req, res) => {
     res.json({hobbies: user.hobbies})
   },
-
   getHobbyType: (req, res) => {
     var results = [];
     for (key in user.hobbies){
@@ -43,7 +38,6 @@ module.exports = {
     }
     res.send(results);
   },
-
   getFamily: (req, res) => {
     var results = [];
     if (req.query.relation){
@@ -56,7 +50,6 @@ module.exports = {
     }
     res.json({family: user.family})
   },
-
   getFamilyGender: (req, res) => {
     var results = [];
     for (key in user.family){
@@ -66,7 +59,6 @@ module.exports = {
     }
     res.send(results);
   },
-
   getRestaurants: (req, res) => {
     var results = [];
     if (req.query.rating){
@@ -77,10 +69,9 @@ module.exports = {
       }
       return res.json(results);
     }
-    // End: For in loop ========================================================
+    // End: For in loop ===========================
     return res.json({restaurants: user.restaurants})
   },
-
   getRestaurantsName: (req, res) => {
     var results = [];
     for (key in user.restaurants){
@@ -89,6 +80,39 @@ module.exports = {
       }
     }
     res.send(results);
+  },
+  // Put name
+  putName: (req, res) => {
+    console.log('name', req.body);
+    res.send(req.name);
+  },
+  // Put location
+  putLocation: (req, res) => {
+    console.log('location', req.body);
+    res.send(req.location);
+  },
+  // Post hobbies
+  postHobbies: (req, res) => {
+    console.log('hobbies', req.body);
+    user.hobbies.push(req.body);
+    res.json(req.hobbies);
+  },
+  // Post occupations
+  postOccupations: (req, res) => {
+    console.log('occupations', req.body);
+    user.occupations.push(req.body);
+    res.json(req.occupations);
+  },
+  // Post family
+  postFamily: (req, res) => {
+    console.log('family', req.body);
+    user.family.push(req.body);
+    res.json(req.family);
+  },
+  // Post restaurants
+  postRestaurants: (req, res) => {
+    console.log('restaurants', req.body);
+    user.restaurants.push(req.body);
+    res.json(req.restaurants);
   }
-
 }

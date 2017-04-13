@@ -22,7 +22,15 @@ app.get('/family/:id', mainCtrl.getFamilyGender);
 app.get('/restaurants', mainCtrl.getRestaurants);
 app.get('/restaurants/:id', mainCtrl.getRestaurantsName);
 
+// Things that can be PUT or PUSHED ============================================
+// These relate to functions which are contained in the mainCtrl.js file =======
 
+app.put('/name', mainCtrl.putName);
+app.put('/location', mainCtrl.putLocation);
+app.post('/hobbies', mainCtrl.postHobbies);
+app.post('/occupations', mainCtrl.postOccupations);
+app.post('/family', mainCtrl.postFamily);
+app.post('/restaurants', mainCtrl.postRestaurants);
 
 // Declares the port number to listen to on the app on =========================
 const PORT = 4040;
