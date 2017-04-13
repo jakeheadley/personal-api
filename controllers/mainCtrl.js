@@ -1,4 +1,5 @@
 var user = require('../user.js');
+var user = require('../skillz.js');
 
 module.exports = {
   getName: (req, res) => {
